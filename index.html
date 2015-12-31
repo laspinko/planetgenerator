@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+    <body>
+        <canvas id="canvas-id"></canvas>
+        <img alt="Click Get Image button" id="planet-img" width="500" height="600" border="2"></img>
+        <form>
+            <input type="checkbox" id="rotate" checked="checked">Planet rotation</input><br>
+            <input type="checkbox" id="water" checked="checked">Realistic water</input><br>
+            Amplitude%(0 to 100):<br>
+            <input type="number" id="ampl" name="ampl" value="1" max="100" min="0" step="1" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57 && document.getElementById("ampl").value*10+event.charCode-48<=100' size="3"></input><br>
+            Quality(1-highest to 6-lowest):<br>
+            <input type="number" id="qual" name="qual" value="5" max="6" min="1" step="1" maxlength="1" onkeypress='return event.charCode >= 49 && event.charCode <= 54' size="1"></input><br>
+            Planet name:<br>
+            <input type="text" id="name" name="name" maxlength="10"></input><br>
+        </form>
+        <button onclick="Apply()">Apply</button>
+        <button onclick="NewMap()">New Map</button><br>
+        Get best quality image, that you can coppy or save-<button onclick="getImg()" id="get-image">Get Image</button><br>
+        String seed:<br>
+        <button onclick="getSeed()">Get seed</button>
+        Copy seed:<input type="text" id="getSeed" readonly onclick="this.select()"><br>
+        Paste seed:<input type="text" id="useSeed"  onclick="this.select()">
+        <button onclick="useSeed()">Use seed</button>
+    </body>
+    <script src="game.js"></script>
+</html>
